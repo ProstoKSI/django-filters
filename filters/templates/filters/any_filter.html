@@ -1,0 +1,21 @@
+<div class="any_filter">
+    <table>
+        <tr>
+            <td>
+                <select>
+                    {% for name, data in filter_params.items %}
+                        <option value="{{ name }}">{{ data.1 }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td>
+                <select>
+                    <option value="">is</option>
+                </select>
+            </td>
+            <td>
+                <input type="text">
+            </td>
+        </tr>
+    </table>
+</div>

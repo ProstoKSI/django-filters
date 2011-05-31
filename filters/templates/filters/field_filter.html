@@ -1,0 +1,13 @@
+{% load i18n %}
+{% if current != default %}
+    <a href="?{{ name }}={{ default }}">{% trans "All" %}</a>
+{% else %}
+    <span>{% trans "All" %}</span>
+{% endif %}
+{% for x in choices %}
+    {% if current != x %}
+        <a href="?{{ name }}={{ x }}">{{ x }}</a>
+    {% else %}
+        <span>{{ x }}</span>
+    {% endif %}
+{% endfor %}

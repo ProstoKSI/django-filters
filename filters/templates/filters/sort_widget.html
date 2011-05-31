@@ -1,0 +1,25 @@
+{% load i18n %}
+{% load misc_tags %}
+{% load query %}
+{% get_dict sort_params sort_current as sort_current_data %}
+
+<div rel="drop_parent" class="drop_down">
+    <div class="label">{% trans "Sort" %} :</div>
+    <div class="input">
+        <div class="selected_item">
+            <a href="#" rel="drop_link" >{{ sort_current_data.1 }}</a>
+        </div>
+        <div class="content">
+            <ul>
+                {% for name, data in sort_params.items %}
+                    {% if name != sort_current %}
+                        <li>
+                            <a href="{% query request.GET 'sort' name %}">{{ data.1 }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
