@@ -2,10 +2,10 @@
 {% if current != default %}
     <a href="?{{ name }}={{ default }}">{% trans "All" %}</a>
 {% else %}
-    <span>{% trans "All" %}</span>
+    <a href="?{{ name }}={{ default }}" class="active">{% trans "All" %}</a>
 {% endif %}
 {% for x in choices %}
-    {% if current != x %}
+    {% if current != x.name %}
         <a href="?{{ name }}={{ x }}">{{ x }}</a>
     {% else %}
         <a href="?{{ name }}={{ x }}" class="active">{{ x }}</a>
