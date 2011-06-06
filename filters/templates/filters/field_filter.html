@@ -8,6 +8,6 @@
     {% if current != x %}
         <a href="?{{ name }}={{ x }}">{{ x }}</a>
     {% else %}
-        <span>{{ x }}</span>
+        <a href="?{{ name }}={{ x }}" class="active">{{ x }}</a>
     {% endif %}
 {% endfor %}
