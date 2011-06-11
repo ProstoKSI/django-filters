@@ -95,6 +95,7 @@ class FieldFilterWidget(BaseFilterWidget):
         field = queryset.model.__dict__[self.field_name].field
         parent_model = field.related.parent_model
         self.extra['choices'] = parent_model.objects.filter(**{field.related_query_name() + '__in': queryset}).distinct()
+        self.extra['current'] = state
         if state:
             return queryset.filter(**{self.field_name + '__' + self.field_id: state})
         return queryset
