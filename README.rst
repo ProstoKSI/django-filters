@@ -29,13 +29,13 @@ Add 'filters' to INSTALLED_APPS: ::
 Use django-filters
 ==================
 
-For example you have model Book: ::
+For example you have model ``Book``: ::
 
     class Book(models.Model):
         name = models.CharField(...)
         size = models.IntegerField(...)
 
-then to make `book_list` view filterable and sortable, use next notation: ::
+then to make ``book_list`` view filterable and sortable, use next notation: ::
     
     from filters.decorators import modify_queryset
 
@@ -45,7 +45,7 @@ then to make `book_list` view filterable and sortable, use next notation: ::
     def book_list(request, template_name='books/book_list.html'):
         return TemplateRender(template_name, {'list': Book.objects.all()})
         
-and in `books/settings.py` add next configuration of filtering:
+and in ``books/settings.py`` add next configuration for filtering: ::
    
     BOOK_LIST_VIEW_FILTER = {
         'sort':  {
